@@ -1,0 +1,17 @@
+on: [push]
+
+jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@master
+      - uses: tool3/ncc@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          src: '/src/index.mjs'
+          commit_msg: 'ci: GitHub-Action dist build'
+          ncc_args: '--license license.txt'
+      - uses: actions/upload-artifact@v1
+        with:
+          name: dist
+          path: dist/
