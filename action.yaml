@@ -1,5 +1,6 @@
 name: 'qa-labels-for-prs'
 description: 'A GitHub Action to help with PR QA Comments and add/remove labels accordingly to the results'
+author: 'auroraisluna'
 icon: 'git-pull-request'
 color: 'purple'
 inputs:
