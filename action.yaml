@@ -1,5 +1,7 @@
 name: 'qa-labels-for-prs'
 description: 'A GitHub Action to help with PR QA Comments and add/remove labels accordingly to the results'
+icon: 'git-pull-request'
+color: 'purple'
 inputs:
   repo-owner: 
     description: 'The owner of the repo to run the action on'
