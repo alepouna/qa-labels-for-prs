@@ -135,7 +135,7 @@ try {
     const failNoComment = core.getInput('fail-action-if-no-qacomment');
     const failNoPass = core.getInput('fail-action-if-qa-failed');
 
-    console.log(`Starting qa-labels-for-prs V1.0.1 - https://github.com/auroraisluna/qa-labels-for-prs`);
+    console.log(`Starting qa-labels-for-prs V1.0.2 - https://github.com/auroraisluna/qa-labels-for-prs`);
 
     //Create an Octokit instance and authenticate 
     const octokit = new Octokit({
