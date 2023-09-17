@@ -6,24 +6,19 @@ import { Octokit } from "@octokit/rest";
 import core from '@actions/core';
 
 let acceptableKeywords = [
-    "Ready To Test",
-    "Ready To test",
-    "Ready to Test",
-    "Ready to test",
-    "Ready for Test",
-    "Ready for test",
-    "Ready for Testing",
-    "Ready for QA",
-    "Ready for Quality Assurance",
-    "Ready for Quality Assurance Testing",
-    "RTT",
+    "ready to test",
+    "ready for test",
+    "ready for testing",
+    "ready for qa",
+    "ready for quality assurance",
+    "ready for quality assurance testing",
     "rtt",
-    "QA Report",
-    "Quality Assurance Tester Report",
-    "Quality Assurance Trainee Report",
-    "QA Tester Report",
-    "QA Trainee Report",
-    "Quality Assurance Report"
+    "qa report",
+    "quality assurance tester report",
+    "quality assurance trainee report",
+    "qa tester report",
+    "qa trainee report",
+    "quality assurance report"
 ];
 
 //Function to fetch the comments from a PR
@@ -69,9 +64,9 @@ async function getLastComment(octo, owner, repo, issue_number) {
 //Function to check if the comment contains the straing "Ready to Test", "Ready for Testing", "Ready for QA", "Ready for Quality Assurance", "Ready for Quality Assurance Testing", "RTT"
 function isRTTComment(comment) {
 
-    const commentBody = comment.body;
+    const commentBody = comment.body.toLowerCase();
 
-    if (commentBody.includes("Ready to Test") || commentBody.includes("Ready for Testing") || commentBody.includes("Ready for QA") || commentBody.includes("Ready for Quality Assurance") || commentBody.includes("Ready for Quality Assurance Testing") || commentBody.includes("RTT")) {
+    if (commentBody.includes("ready to test") || commentBody.includes("ready for testing") || commentBody.includes("ready for qa") || commentBody.includes("ready for quality assurance") || commentBody.includes("ready for quality assurance testing") || commentBody.includes("rtt")) {
         return true;
     } else {
         return false;
@@ -82,7 +77,7 @@ function isRTTComment(comment) {
 //Function to check if the comment contains the string "QA Report" or "Quality Assurance Tester Report" or "Quality Assurance Trainee Report"
 function isValidComment(comment) {
 
-    const commentBody = comment.body;
+    const commentBody = comment.body.toLowerCase();
 
     //Check if the comment contains any of the acceptable keywords
     for (let i = 0; i < acceptableKeywords.length; i++) {
@@ -100,9 +95,9 @@ function isValidComment(comment) {
 //Function to check if the comment contains the string "Testing Results"
 function hasTestingResults(comment) {
 
-    const commentBody = comment.body;
+    const commentBody = comment.body.toLowerCase();
 
-    if (commentBody.includes("Testing Results")) {
+    if (commentBody.includes("testing results") || commentBody.includes("test results") ) {
         return true;
     } else {
         return false;
@@ -113,11 +108,11 @@ function hasTestingResults(comment) {
 //Function to check if the comment contains the string "Passed" after "Testing Results"
 function isPassed(comment) {
 
-    const commentBody = comment.body;
+    const commentBody = comment.body.toLowerCase();
 
-    if (commentBody.includes("Not Passed") || commentBody.includes("Not passed") || commentBody.includes("not passed") || commentBody.includes("not Passed")) {
+    if (commentBody.includes("not passed")) {
         return false;
-    } else if (commentBody.includes("Passed") || commentBody.includes("passed")) {
+    } else if (commentBody.includes("passed")) {
         return true;
     };
 
@@ -140,7 +135,7 @@ try {
     const failNoComment = core.getInput('fail-action-if-no-qacomment');
     const failNoPass = core.getInput('fail-action-if-qa-failed');
 
-    console.log(`Starting qa-labels-for-prs V1.0.0 - https://github.com/auroraisluna/qa-labels-for-prs`);
+    console.log(`Starting qa-labels-for-prs V1.0.1 - https://github.com/auroraisluna/qa-labels-for-prs`);
 
     //Create an Octokit instance and authenticate 
     const octokit = new Octokit({
