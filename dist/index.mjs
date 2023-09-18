@@ -10808,7 +10808,7 @@ try {
     const failNoComment = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('fail-action-if-no-qacomment');
     const failNoPass = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('fail-action-if-qa-failed');
 
-    console.log(`Starting qa-labels-for-prs V1.0.2 - https://github.com/auroraisluna/qa-labels-for-prs`);
+    console.log(`Starting qa-labels-for-prs V1.0.3 - https://github.com/auroraisluna/qa-labels-for-prs`);
 
     //Create an Octokit instance and authenticate 
     const octokit = new _octokit_rest__WEBPACK_IMPORTED_MODULE_2__.Octokit({
