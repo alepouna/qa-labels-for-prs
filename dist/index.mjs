@@ -10546,7 +10546,7 @@ function wrappy (fn, cb) {
 /***/ 8475:
 /***/ ((module) => {
 
-module.exports = eval("require")("dotenv/config");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("dotenv/config");
 
 
 /***/ }),
@@ -10554,7 +10554,7 @@ module.exports = eval("require")("dotenv/config");
 /***/ 9607:
 /***/ ((module) => {
 
-module.exports = eval("require")("encoding");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("encoding");
 
 
 /***/ }),
@@ -10808,7 +10808,7 @@ try {
     const failNoComment = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('fail-action-if-no-qacomment');
     const failNoPass = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('fail-action-if-qa-failed');
 
-    console.log(`Starting qa-labels-for-prs V1.0.3 - https://github.com/auroraisluna/qa-labels-for-prs`);
+    console.log(`Starting qa-labels-for-prs V1.0.4 - https://github.com/auroraisluna/qa-labels-for-prs`);
 
     //Create an Octokit instance and authenticate 
     const octokit = new _octokit_rest__WEBPACK_IMPORTED_MODULE_2__.Octokit({
