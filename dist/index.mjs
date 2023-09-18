@@ -10543,14 +10543,6 @@ function wrappy (fn, cb) {
 
 /***/ }),
 
-/***/ 8475:
-/***/ ((module) => {
-
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("dotenv/config");
-
-
-/***/ }),
-
 /***/ 9607:
 /***/ ((module) => {
 
@@ -10668,13 +10660,10 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("zlib");
 /***/ ((__webpack_module__, __unused_webpack___webpack_exports__, __nccwpck_require__) => {
 
 __nccwpck_require__.a(__webpack_module__, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
-/* harmony import */ var dotenv_config__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(8475);
-/* harmony import */ var _octokit_rest__WEBPACK_IMPORTED_MODULE_2__ = __nccwpck_require__(7560);
-/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(8257);
+/* harmony import */ var _octokit_rest__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(7560);
+/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(8257);
 //https://github.com/auroraisluna/qa-labels-for-prs
 //LICENSE: REF TO LICENSE FILE
-
-
 
 
 
@@ -10709,7 +10698,7 @@ async function fetchComments(octo, owner, repo, issue_number) {
 
     } catch (error) {
 
-        _actions_core__WEBPACK_IMPORTED_MODULE_1__.setFailed(error);
+        _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error);
         throw new Error(error);
 
     };
@@ -10727,7 +10716,7 @@ async function getLastComment(octo, owner, repo, issue_number) {
 
     } catch (error) {
 
-        _actions_core__WEBPACK_IMPORTED_MODULE_1__.setFailed(error);
+        _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error);
         throw new Error(error);
 
     };
@@ -10798,20 +10787,20 @@ try {
     let isValidQAComment = false;
 
     //Get variables from the workflow
-    const token = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('github-token');
-    const repoOwner = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('repo-owner');
-    const repoName = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('repo-name');
-    const prNumber = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('pr-number');
-    const labelPass = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('label-pass');
-    const labelFail = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('label-fail');
-    const labelRTT = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('label-rtt');
-    const failNoComment = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('fail-action-if-no-qacomment');
-    const failNoPass = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('fail-action-if-qa-failed');
+    const token = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('github-token');
+    const repoOwner = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('repo-owner');
+    const repoName = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('repo-name');
+    const prNumber = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('pr-number');
+    const labelPass = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('label-pass');
+    const labelFail = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('label-fail');
+    const labelRTT = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('label-rtt');
+    const failNoComment = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('fail-action-if-no-qacomment');
+    const failNoPass = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('fail-action-if-qa-failed');
 
     console.log(`Starting qa-labels-for-prs V1.0.4 - https://github.com/auroraisluna/qa-labels-for-prs`);
 
     //Create an Octokit instance and authenticate 
-    const octokit = new _octokit_rest__WEBPACK_IMPORTED_MODULE_2__.Octokit({
+    const octokit = new _octokit_rest__WEBPACK_IMPORTED_MODULE_1__.Octokit({
         auth: token
     });
   
@@ -10834,7 +10823,7 @@ try {
         if (failNoComment) {
 
             console.log(`Action failed`);
-            _actions_core__WEBPACK_IMPORTED_MODULE_1__.setFailed(`Not a QA comment`);
+            _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(`Not a QA comment`);
 
         };
 
@@ -10910,7 +10899,7 @@ try {
             if (failNoPass) {
                 
                 console.log(`Action failed`);
-                _actions_core__WEBPACK_IMPORTED_MODULE_1__.setFailed(`QA Reported as NOT PASSED`);
+                _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(`QA Reported as NOT PASSED`);
 
             };
 
@@ -10977,7 +10966,7 @@ try {
 //Catch any errors during the action and fail the action
 } catch (error) {
 
-  _actions_core__WEBPACK_IMPORTED_MODULE_1__.setFailed(error.message);
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.message);
 
 };
 

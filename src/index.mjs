@@ -1,7 +1,5 @@
 //https://github.com/auroraisluna/qa-labels-for-prs
 //LICENSE: REF TO LICENSE FILE
-
-import 'dotenv/config'
 import { Octokit } from "@octokit/rest";
 import core from '@actions/core';
 
