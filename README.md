@@ -1,9 +1,9 @@
-## ⚠️⚠️⚠️ As of 29/02/2024 this repo has been moved to GitLab at https://gitlab.com/alepouna.dev/qa-labels-for-prs
- 
- # qa-labels-for-prs
+# qa-labels-for-prs
 
 A GitHub action to automatically add labels to pull requests based on QA report comments. 
 This action is designed mostly for use by the FlyByWire project, so it is more tailored to their needs, but it can be used by anyone. 
+
+⚠️ As of 29/02/2024 FlyByWire is using their own action maintained by me, find it here: https://github.com/flybywiresim/actions-qa-labels
 
 ## Installation 
 
